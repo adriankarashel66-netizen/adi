@@ -1,0 +1,1020 @@
+ <!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Для Ани ❤️</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #4a0b2b 0%,
+                    #210014 35%,
+                    #080008 100%
+                );
+
+            color: white;
+
+            overflow-x: hidden;
+        }
+
+
+        /* -------------------------
+           ПЛАВАЮЩИЕ СЕРДЕЧКИ
+        ------------------------- */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -40px;
+
+            font-size: 22px;
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            z-index: 1;
+
+            animation: fly 8s linear infinite;
+        }
+
+
+        @keyframes fly {
+
+            0% {
+
+                transform:
+                    translateY(0)
+                    scale(0.7)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            100% {
+
+                transform:
+                    translateY(-110vh)
+                    scale(1.5)
+                    rotate(25deg);
+
+                opacity: 0;
+            }
+        }
+
+
+        /* -------------------------
+           СТАРТОВЫЙ ЭКРАН
+        ------------------------- */
+
+        #start {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            position: relative;
+
+            z-index: 5;
+        }
+
+
+        .start-box {
+
+            max-width: 650px;
+
+            animation: appear 2s ease;
+        }
+
+
+        @keyframes appear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(0.95);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        .start-box h1 {
+
+            font-size:
+                clamp(45px, 12vw, 85px);
+
+            margin-bottom: 20px;
+
+            text-shadow:
+                0 0 25px rgba(255, 80, 150, 0.5);
+        }
+
+
+        .start-box p {
+
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            opacity: 0.85;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* -------------------------
+           КНОПКА
+        ------------------------- */
+
+        .open-button {
+
+            border: none;
+
+            padding:
+                17px
+                38px;
+
+            border-radius: 50px;
+
+            background: white;
+
+            color: #a00048;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.4s;
+
+            box-shadow:
+                0 0 30px
+                rgba(255,255,255,0.25);
+        }
+
+
+        .open-button:hover {
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 45px
+                rgba(255,255,255,0.45);
+        }
+
+
+        /* -------------------------
+           ОСНОВНОЙ САЙТ
+        ------------------------- */
+
+        #content {
+
+            display: none;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        section {
+
+            min-height: 100vh;
+
+            padding:
+                90px
+                20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+        }
+
+
+        .title {
+
+            font-size:
+                clamp(38px, 9vw, 70px);
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 0 20px
+                rgba(255, 80, 150, 0.25);
+        }
+
+
+        .subtitle {
+
+            max-width: 700px;
+
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            opacity: 0.88;
+        }
+
+
+        /* -------------------------
+           ФОТОГРАФИИ
+        ------------------------- */
+
+        .photos {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
+            gap: 25px;
+
+            width: min(100%, 950px);
+
+            margin-top: 45px;
+        }
+
+
+        .photo {
+
+            padding: 10px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.12);
+
+            border-radius: 22px;
+
+            backdrop-filter: blur(12px);
+
+            transition:
+                transform 0.5s,
+                box-shadow 0.5s;
+        }
+
+
+        .photo:hover {
+
+            transform:
+                translateY(-12px)
+                rotate(1deg);
+
+            box-shadow:
+                0 15px 45px
+                rgba(0,0,0,0.4);
+        }
+
+
+        .photo img {
+
+            width: 100%;
+
+            height: 370px;
+
+            object-fit: cover;
+
+            border-radius: 16px;
+
+            display: block;
+        }
+
+
+        /* -------------------------
+           ПИСЬМО
+        ------------------------- */
+
+        .letter {
+
+            width: min(100%, 780px);
+
+            padding: 45px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.11),
+                    rgba(255,255,255,0.04)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.16);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(18px);
+
+            box-shadow:
+                0 20px 70px
+                rgba(0,0,0,0.35);
+
+            text-align: left;
+
+            font-size: 19px;
+
+            line-height: 1.85;
+        }
+
+
+        .letter p {
+
+            margin-bottom: 22px;
+        }
+
+
+        .letter p:last-child {
+
+            margin-bottom: 0;
+
+            text-align: right;
+        }
+
+
+        .letter strong {
+
+            font-size: 20px;
+        }
+
+
+        /* -------------------------
+           ФИНАЛ
+        ------------------------- */
+
+        .final {
+
+            min-height: 100vh;
+        }
+
+
+        .big-heart {
+
+            font-size: 105px;
+
+            margin-bottom: 25px;
+
+            animation:
+                heartbeat 1.6s
+                ease-in-out
+                infinite;
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(255,50,120,0.5)
+                );
+        }
+
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+
+                transform: scale(1);
+            }
+
+            50% {
+
+                transform: scale(1.18);
+            }
+        }
+
+
+        .final h2 {
+
+            font-size:
+                clamp(42px, 10vw, 85px);
+
+            margin-bottom: 25px;
+        }
+
+
+        .final p {
+
+            max-width: 650px;
+
+            font-size: 21px;
+
+            line-height: 1.8;
+
+            opacity: 0.9;
+        }
+
+
+        /* -------------------------
+           КНОПКА МУЗЫКИ
+        ------------------------- */
+
+        .music-button {
+
+            position: fixed;
+
+            top: 20px;
+
+            right: 20px;
+
+            z-index: 20;
+
+            width: 50px;
+
+            height: 50px;
+
+            padding: 0;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.9);
+
+            color: #a00048;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: none;
+
+            box-shadow:
+                0 5px 25px
+                rgba(0,0,0,0.3);
+        }
+
+
+        /* -------------------------
+           FOOTER
+        ------------------------- */
+
+        .footer {
+
+            padding: 35px;
+
+            text-align: center;
+
+            opacity: 0.55;
+
+            font-size: 14px;
+        }
+
+
+        /* -------------------------
+           МОБИЛЬНАЯ ВЕРСИЯ
+        ------------------------- */
+
+        @media (max-width: 600px) {
+
+            section {
+
+                padding:
+                    70px
+                    18px;
+            }
+
+
+            .letter {
+
+                padding: 27px;
+
+                font-size: 17px;
+
+                line-height: 1.75;
+            }
+
+
+            .letter strong {
+
+                font-size: 18px;
+            }
+
+
+            .photo img {
+
+                height: 330px;
+            }
+
+
+            .start-box p {
+
+                font-size: 18px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ПЛАВАЮЩИЕ СЕРДЕЧКИ -->
+
+    <div class="heart"
+         style="left: 8%; animation-delay: 0s;">
+        ❤️
+    </div>
+
+    <div class="heart"
+         style="left: 25%; animation-delay: 2s;">
+        💕
+    </div>
+
+    <div class="heart"
+         style="left: 45%; animation-delay: 4s;">
+        ❤️
+    </div>
+
+    <div class="heart"
+         style="left: 65%; animation-delay: 1s;">
+        💗
+    </div>
+
+    <div class="heart"
+         style="left: 85%; animation-delay: 3s;">
+        💖
+    </div>
+
+
+    <!-- КНОПКА МУЗЫКИ -->
+
+    <button
+        class="music-button"
+        id="musicButton"
+        onclick="toggleMusic()">
+
+        🔊
+
+    </button>
+
+
+    <!-- -------------------------
+         СТАРТОВЫЙ ЭКРАН
+    ------------------------- -->
+
+    <div id="start">
+
+        <div class="start-box">
+
+            <h1>
+                Для Ани ❤️
+            </h1>
+
+            <p>
+                Я приготовил для тебя кое-что особенное...
+            </p>
+
+            <button
+                class="open-button"
+                onclick="openSite()">
+
+                Открыть 💌
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- -------------------------
+         ОСНОВНОЙ КОНТЕНТ
+    ------------------------- -->
+
+    <div id="content">
+
+
+        <!-- ПРИВЕТСТВИЕ -->
+
+        <section>
+
+            <h1 class="title">
+                Аня ❤️
+            </h1>
+
+            <p class="subtitle">
+
+                Я не могу передать словами
+                как я любю тебя моя Люляшка.
+
+
+                Поэтому я решил сделать
+                для тебя кое что особенное.
+
+            </p>
+
+        </section>
+
+
+        <!-- ФОТО -->
+
+        <section>
+
+            <h2 class="title">
+                Наши моменты 📸
+            </h2>
+
+            <p class="subtitle">
+
+                Немного моментов,
+                которые хочется сохранить.( хотелось бы совместных фото но их нету )
+
+            </p>
+
+
+            <div class="photos">
+
+
+                <div class="photo">
+
+                    <img
+                        src="photo1.jpg"
+                        alt="Фото Ани">
+
+                </div>
+
+
+                <div class="photo">
+
+                    <img
+                        src="photo2.jpg"
+                        alt="Фото 2">
+
+                </div>
+
+
+                <div class="photo">
+
+                    <img
+                        src="photo3.jpg"
+                        alt="Фото 3">
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ПИСЬМО -->
+
+        <section>
+
+            <h2 class="title">
+                От меня тебе 💌
+            </h2>
+
+
+            <div class="letter">
+
+
+                <p>
+
+                    Дорогая Аня, в этом письме я хочу,
+                    чтобы ты знала о моих чувствах
+                    к тебе ❤️.
+
+                </p>
+
+
+                <p>
+
+                    Я прекрасно понимаю, что я не могу
+                    правильно и красочно выражать
+                    свои чувства, но хочу, чтобы ты
+                    знала, что ты стала для меня
+                    не просто обычным собеседником,
+                    а чем-то большим
+                    (я бы сказал важным человеком
+                    для меня).
+
+                </p>
+
+
+                <p>
+
+                    Мне безумно нравится и приятно
+                    проводить с тобой время,
+                    с тобой очень комфортно,
+                    есть о чем поговорить,
+                    иногда мы думаем об одном и том же
+                    (короче, на одном вайбе).
+
+                </p>
+
+
+                <p>
+
+                    Мне нравится знать,
+                    что ты просто есть у меня.
+
+                </p>
+
+
+                <p>
+
+                    Я действительно ценю тебя,
+                    уважаю и люблю тебя такой,
+                    какая ты есть 😘❤️
+
+                </p>
+
+
+                <p>
+
+                    С любовью,<br>
+
+                    <strong>
+                        Адриан (твой кабанчик) 🐗❤️
+                    </strong>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ФИНАЛ -->
+
+        <section class="final">
+
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+
+            <h2>
+                Я тебя люблю
+            </h2>
+
+
+            <p>
+
+                И буду ждать нашей встречи.
+
+                Даже есди ты в Москве... (кринж исправляй, Жду❤️)
+      
+                ты всегда будешь занимать
+                особенное место в моём сердце.
+
+            </p>
+
+
+        </section>
+
+
+        <div class="footer">
+
+            Сделано специально для Ани ❤️
+
+        </div>
+
+
+    </div>
+
+
+    <!-- -------------------------
+         МУЗЫКА
+    ------------------------- -->
+
+    <audio
+        id="music"
+        loop>
+
+        <source
+            src="music.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <script>
+
+
+        /* -------------------------
+           ОТКРЫТИЕ САЙТА
+        ------------------------- */
+
+        function openSite() {
+
+
+            document
+                .getElementById("start")
+                .style
+                .display = "none";
+
+
+            document
+                .getElementById("content")
+                .style
+                .display = "block";
+
+
+            document
+                .getElementById("musicButton")
+                .style
+                .display = "block";
+
+
+            const music =
+                document.getElementById("music");
+
+
+            /*
+             Музыка запускается после
+             нажатия пользователем кнопки.
+            */
+
+            music.play().catch(() => {
+
+                console.log(
+                    "Нажмите кнопку 🔊 для запуска музыки."
+                );
+
+            });
+
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+
+
+
+        /* -------------------------
+           МУЗЫКА ON / OFF
+        ------------------------- */
+
+        function toggleMusic() {
+
+
+            const music =
+                document.getElementById("music");
+
+
+            const button =
+                document.getElementById("musicButton");
+
+
+            if (music.paused) {
+
+
+                music.play();
+
+
+                button.innerHTML = "🔊";
+
+
+            } else {
+
+
+                music.pause();
+
+
+                button.innerHTML = "🔇";
+
+            }
+
+        }
+
+
+
+        /* -------------------------
+           НОВЫЕ СЕРДЕЧКИ
+        ------------------------- */
+
+        function createHeart() {
+
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.className = "heart";
+
+
+            const hearts = [
+
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💓"
+
+            ];
+
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random()
+                        * hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "%";
+
+
+            heart.style.animationDuration =
+                (5 + Math.random() * 5)
+                + "s";
+
+
+            document.body
+                .appendChild(heart);
+
+
+            setTimeout(() => {
+
+                heart.remove();
+
+            }, 10000);
+
+        }
+
+
+        setInterval(
+            createHeart,
+            1000
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+```
